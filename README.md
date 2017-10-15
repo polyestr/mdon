@@ -99,6 +99,7 @@ unintended mishaps.
 
 <?!?>
 [asset-1]: assets/logo.svg
+
 ---
-Last Updated: Sunday, October 15, 2017, 11:49:29 AM UTC
+Last Updated: Sunday, October 15, 2017, 12:29:56 PM UTC
 <?!>
