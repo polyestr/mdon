@@ -93,7 +93,7 @@ This function will process a single markdown file:
 <? `\n## Concepts\n\n${@include('docs/CONCEPTS.md')}` ?>
 ## Concepts
 
-> *Fragments*
+### Fragments
 
 Fragments are sections or regions that will be processed in the order by which
 they appear in markdown.
@@ -106,7 +106,7 @@ they appear in markdown.
 
   3. If it is not in a well-formed fragment it will come back to haunt you.
 
-> *Directives*
+### Directives
 
 Directives are either a marker or a template literal expression enclosed between
 the `<?` and `?>` of an opening tag.
@@ -119,7 +119,7 @@ with the fishes (those are MDons business not yours).
 3. Template tags starting with ``<? `MDon will obey your ${[interpolations]}` ?>``
 make up everything that will take over till `<?!>`.
 
-> *Interpolations*
+### Interpolations
 
 Template expressions follow standard javascript interpolations for the most part
 but they are evaluated in a sandboxed environment to prevent malicious or
@@ -145,7 +145,7 @@ unintended mishaps.
   MDon takes care of anyway, but honestly is `` `${displayName} ${version}` ``
   not good enought already… MDon always asks himself that question.
 
-> *Gotchas*
+### Gotchas
 
   1. If you don't match your `<?…?>` with a `<?!>` you'll be sorry, things tend
   to go missing so if you want static content that does not go swimming wrap
@@ -165,5 +165,5 @@ unintended mishaps.
 [asset-1]: assets/logo.svg
 
 ---
-Last Updated: Sunday, October 15, 2017, 1:36:07 PM UTC
+Last Updated: Sunday, October 15, 2017, 1:38:12 PM UTC
 <?!>
