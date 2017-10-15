@@ -14,15 +14,18 @@ Stupid simple inline markdown fields used by the Polyestr application framework.
 
 ## Getting Started
 
-### It looks like this
-
-```
-<? start ?>
-```
-
 ### Installing
 
 MDon is still in it's infancy so you will have to install it from [gist][mdon-gist] for now.
+
+<!--
+### Usage
+
+```
+ <? start ?>
+ <?!>
+```
+-->
 
 <?!>
 
