@@ -15,6 +15,7 @@
     "scripts": {
         "md~": "lib/index.js",
         "md": "lib/index.mjs",
+        "test-package-yarn": "cd ./test/package; yarn test-yarn-md; cd ../../",
         "prepare": "yarn md"
     }
 }

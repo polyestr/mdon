@@ -1,0 +1,20 @@
+{
+    "private": true,
+    "name": "@polyestr/mdon-test",
+    "displayName": "Polyestr MDon Test",
+    "glyph": "ΨM-Test",
+    "version": "1.0.0-test.1",
+    "description": "Test package for the stupid simple inline markdown fields used by the Polyestr application framework.",
+    "author": "Saleh Abdel Motaal <saleh@grasppe.com>",
+    "license": "MIT",
+    "dependencies": {
+        "@polyestr/mdon": "../../",
+        "rimraf": "^2.6.2"
+    },
+    "scripts": {
+        "reinstall": "rimraf node_modules && yarn install",
+        "md~": "mdon~",
+        "md": "mdon",
+        "test-yarn-md": "yarn reinstall && yarn md && yarn md~"
+    }
+}
