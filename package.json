@@ -8,6 +8,10 @@
     "license": "MIT",
     "main": "lib/index",
     "types": "lib/index.d.ts",
+    "repository": {
+        "url": "https://github.com/polyestr/mdon",
+        "type": "git"
+    },
     "bin": {
         "mdon~": "lib/index.js",
         "mdon": "lib/index.mjs"
