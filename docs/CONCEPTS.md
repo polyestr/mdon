@@ -1,34 +1,3 @@
-<? `\n![${displayName} logo][${@alias(@exists('assets/logo.svg'), 'asset')}]\n` ?>
-![Polyestr MDon logo][asset-1]
-<?!>
-
-<? `\n# ${displayName}\n` ?>
-# Polyestr MDon
-<?!>
-
-<? `\n${description}\n` ?>
-Stupid simple inline markdown fields used by the Polyestr application framework.
-<?!>
-
-<? ?>
-
-## Getting Started
-
-### It looks like this
-
-```
-<? start ?>
-```
-
-### Installing
-
-MDon is still in it's infancy so you will have to install it from [gist][mdon-gist] for now.
-
-<?!>
-
-<? `\n### Concepts\n\n${@include('docs/CONCEPTS.md')}` ?>
-### Concepts
-
 > *Fragments*
 
 Fragments are sections or regions that will be processed in the order by which
@@ -91,14 +60,3 @@ unintended mishaps.
   and hack away, that's better than flooding your code with plugins.
 
   3. MDon likes to put things in multiples of 3, you know, a-b-c, 1-2-3.
-<?!>
-
-<? ?>
-[mdon-gist]: https://gist.github.com/daflair/d92ae1d4f54d7cb43a434388c6adabaf
-<?!>
-
-<?!?>
-[asset-1]: assets/logo.svg
----
-Last Updated: Sunday, October 15, 2017, 11:49:29 AM UTC
-<?!>

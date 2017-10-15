@@ -2,13 +2,19 @@
     "name": "@polyestr/mdon",
     "displayName": "Polyestr MDon",
     "glyph": "ΨM",
-    "version": "1.0.0-alpha.0",
+    "version": "1.0.0-alpha.1",
     "description": "Stupid simple inline markdown fields used by the Polyestr application framework.",
     "author": "Saleh Abdel Motaal <saleh@grasppe.com>",
     "license": "MIT",
     "main": "lib/index",
     "types": "lib/index.d.ts",
     "bin": {
-        "mdon": "lib/index.js"
+        "mdon~": "lib/index.js",
+        "mdon": "lib/index.mjs"
+    },
+    "scripts": {
+        "md~": "lib/index.js",
+        "md": "lib/index.mjs",
+        "prepare": "yarn md"
     }
 }
