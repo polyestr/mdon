@@ -1,25 +1,25 @@
 ---
  title: README
 ---
-<? `\n![${displayName} logo][${@alias(@exists('../../assets/logo.svg'), 'asset')}]\n` ?>
+<!--? `\n![${displayName} logo][${@alias(@exists('../../assets/logo.svg'), 'asset')}]\n` ?-->
 
 ![Polyestr MDon Test logo][asset-1]
 
-<?!>
+<!--?!-->
 
-<? `\n# ${displayName}\n` ?>
+<!--? `\n# ${displayName}\n` ?-->
 
 # Polyestr MDon Test
 
-<?!>
+<!--?!-->
 
-<? `\n${description}\n` ?>
+<!--? `\n${description}\n` ?-->
 
 Test package for the stupid simple inline markdown fields used by the Polyestr application framework.
 
-<?!>
+<!--?!-->
 
-<? ?>
+<!--? ?-->
 
 ## Getting Started
 
@@ -36,9 +36,9 @@ MDon is still in it's infancy so you will have to install it from [gist][mdon-gi
 ```
 -->
 
-<?!>
+<!--?!-->
 
-<? `\n### Concepts\n\n${@include('docs/MDON_CONCEPTS.md')}` ?>
+<!--? `\n### Concepts\n\n${@include('docs/MDON_CONCEPTS.md')}` ?-->
 
 ### Concepts
 
@@ -105,15 +105,15 @@ unintended mishaps.
 
   3. MDon likes to put things in multiples of 3, you know, a-b-c, 1-2-3.
 
-<?!>
+<!--?!-->
 
-<? ?>
+<!--? ?-->
 [mdon-gist]: https://gist.github.com/daflair/d92ae1d4f54d7cb43a434388c6adabaf
-<?!>
+<!--?!-->
 
-<?!?>
+<!--?!?-->
 [asset-1]: ../../assets/logo.svg
 
 ---
-Last Updated: Monday, October 16, 2017, 11:50:12 AM UTC
-<?!>
+Last Updated: Monday, October 16, 2017, 9:38:18 PM UTC
+<!--?!-->
