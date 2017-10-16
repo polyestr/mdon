@@ -19,7 +19,7 @@ please submit an issue, not a PR at this point, but feel free to gist.
 <? `## Installation\n\n    » yarn add ${name}` ?>
 ## Installation
 
-    » yarn add @polyestr/mdon
+    » yarn add mdon
 <?!>
 
 <? `${@include('docs/USAGE.md')}` ?>
@@ -202,5 +202,5 @@ evolve to meet your practical needs.
 [asset-1]: assets/logo.svg
 
 ---
-Last Updated: Monday, October 16, 2017, 11:10:40 AM UTC
+Last Updated: Monday, October 16, 2017, 11:48:06 AM UTC
 <?!>

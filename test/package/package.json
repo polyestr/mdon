@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "@polyestr/mdon-test",
+    "name": "mdon-test",
     "displayName": "Polyestr MDon Test",
     "glyph": "ΨM-Test",
     "version": "1.0.0-test.1",
