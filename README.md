@@ -1,26 +1,23 @@
-<? `\n![${displayName} logo][${@alias(@exists('assets/logo.svg'), 'asset')}]\n` ?>
+<? `![${displayName} logo][${@alias(@exists('assets/logo.svg'), 'asset')}]` ?>
 ![Polyestr MDon logo][asset-1]
 <?!>
 
-<? `\n# ${displayName}\n` ?>
+<? `# ${displayName}` ?>
 # Polyestr MDon
 <?!>
 
-<? `\n${description}\n` ?>
+<? `${description}` ?>
 Stupid simple inline markdown fields used by the Polyestr application framework.
 <?!>
 
-<? `\n## Installation\n\n    yarn add ${name}\n\n` ?>
+<? `## Installation\n\n    » yarn add ${name}` ?>
 ## Installation
 
-    yarn add @polyestr/mdon
-
+    » yarn add @polyestr/mdon
 <?!>
 
-<? `\n## Usage\n\n${@include('docs/USAGE.md')}` ?>
-## Usage
-
-### Command-Line Interface
+<? `${@include('docs/USAGE.md')}` ?>
+## CLI
 
 MDon provides a CLI which is intended for use with scripts defined in your local
 package.json (assuming you follow the recommended practice of installing tools
@@ -55,7 +52,7 @@ If you need to call it from a different root follow this pattern:
 
 Read more on [`pushd` and `popd` on Wikipedia](https://en.wikipedia.org/wiki/Pushd_and_popd).
 
-### API
+## API
 
 MDon is meant to be used from the command-line, however, you can still use it
 in your code through it's single-function simple interface.
@@ -88,9 +85,12 @@ This function will process a single markdown file:
   mdon('path-to-package.json', 'path-to-DOCUMENT.md', '.out');
 
 ```
+
 <?!>
 
-<? `\n## Concepts\n\n${@include('docs/CONCEPTS.md')}` ?>
+<? `\n\n---\n## Concepts\n\n${@include('docs/CONCEPTS.md')}` ?>
+
+---
 ## Concepts
 
 ### Fragments
@@ -155,15 +155,46 @@ unintended mishaps.
   and hack away, that's better than flooding your code with plugins.
 
   3. MDon likes to put things in multiples of 3, you know, a-b-c, 1-2-3.
+
 <?!>
 
-<? ?>
-[mdon-gist]: https://gist.github.com/daflair/d92ae1d4f54d7cb43a434388c6adabaf
+<? `\n\n---\n${@include('docs/FAQ.md')}` ?>
+
+---
+## FAQ
+
+> **Q:** What could cause some markdown to show up as raw text or simply vanish
+instead of rendered HTML, when all fragments seem to be properly terminated?
+>
+> > **A:** If all your fragments are terminated correctly, then the likely cause
+of this behavior is that you did not wrap this section in a static fragment.
+<br/> <br/> It was a design choice to use `<?!>` as the terminator, knowing that for
+major markdown breaks as they expect such tags to look more like `<?…?>`. This
+meant that any thing that followed this closing tag can and will likely break
+when parsed. That's why static fragment wrapper is highly encouraged, as most
+parsers will overcome the side-effects of malformed `<?!>` once they hit a
+properly formed one.
+
+> **Q:** What can cause the body of a fragment that used to be processed correctly
+to suddenly disappear if the same directive used to work fine previously.
+>
+> > **A:** If any errors occur while parsing a directive, the entire fragment will
+be replaced by an HTML comment containing the message from the exception. This
+should provide some hint on what would have cause the directive to fail without
+bloating MDon's code with more complex debugging mechanism. If you can't figure
+out the reason from this message, you can try using your prefered node debugger.
+
+> **Q:** What could cause an entire fragment (directive and body) to always get
+dropped even after manually putting it back?
+>
+> > **A:** This is a good time to file an issue so we can figure out where MDon can
+evolve to meet your practical needs.
+
 <?!>
 
 <?!?>
 [asset-1]: assets/logo.svg
 
 ---
-Last Updated: Sunday, October 15, 2017, 1:38:12 PM UTC
+Last Updated: Monday, October 16, 2017, 11:10:40 AM UTC
 <?!>

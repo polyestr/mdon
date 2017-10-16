@@ -1,4 +1,4 @@
-### Command-Line Interface
+## CLI
 
 MDon provides a CLI which is intended for use with scripts defined in your local
 package.json (assuming you follow the recommended practice of installing tools
@@ -33,7 +33,7 @@ If you need to call it from a different root follow this pattern:
 
 Read more on [`pushd` and `popd` on Wikipedia](https://en.wikipedia.org/wiki/Pushd_and_popd).
 
-### API
+## API
 
 MDon is meant to be used from the command-line, however, you can still use it
 in your code through it's single-function simple interface.
