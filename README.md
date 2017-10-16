@@ -1,4 +1,4 @@
-<? `![${displayName} logo][${@alias(@exists('assets/logo.svg'), 'asset')}]` ?>
+<? `![${displayName} logo][${@alias('https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg', 'asset')}]` ?>
 ![Polyestr MDon logo][asset-1]
 <?!>
 
@@ -199,8 +199,8 @@ evolve to meet your practical needs.
 <?!>
 
 <?!?>
-[asset-1]: assets/logo.svg
+[asset-1]: https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg
 
 ---
-Last Updated: Monday, October 16, 2017, 11:48:06 AM UTC
+Last Updated: Monday, October 16, 2017, 11:58:53 AM UTC
 <?!>
