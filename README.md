@@ -10,6 +10,12 @@
 Stupid simple inline markdown fields used by the Polyestr application framework.
 <?!>
 
+<? ?>
+**Note:** MDon is still highly experimental and is not yet cross-platform
+enabled, so if you managed to use it on Windows or Linux or worked-out quirks,
+please submit an issue, not a PR at this point, but feel free to gist.
+<?!>
+
 <? `## Installation\n\n    » yarn add ${name}` ?>
 ## Installation
 
