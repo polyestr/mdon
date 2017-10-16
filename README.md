@@ -1,28 +1,18 @@
-<!--? `![${displayName} logo][${@alias('https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg', 'asset')}]` ?-->
+
 ![Polyestr MDon logo][asset-1]
-<!--?!-->
 
-<!--? `# ${displayName}` ?-->
 # Polyestr MDon
-<!--?!-->
 
-<!--? `${description}` ?-->
 Stupid simple inline markdown fields used by the Polyestr application framework.
-<!--?!-->
 
-<!--? ?-->
 **Note:** MDon is still highly experimental and is not yet cross-platform
 enabled, so if you managed to use it on Windows or Linux or worked-out quirks,
 please submit an issue, not a PR at this point, but feel free to gist.
-<!--?!-->
 
-<!--? `## Installation\n\n    » yarn add ${name}` ?-->
 ## Installation
 
     » yarn add mdon
-<!--?!-->
 
-<!--? `${@include('docs/USAGE.md')}` ?-->
 ## CLI
 
 MDon provides a CLI which is intended for use with scripts defined in your local
@@ -92,10 +82,6 @@ This function will process a single markdown file:
 
 ```
 
-<!--?!-->
-
-<!--? `\n\n---\n## Concepts\n\n${@include('docs/CONCEPTS.md')}` ?-->
-
 ---
 ## Concepts
 
@@ -162,10 +148,6 @@ unintended mishaps.
 
   3. MDon likes to put things in multiples of 3, you know, a-b-c, 1-2-3.
 
-<!--?!-->
-
-<!--? `\n\n---\n${@include('docs/FAQ.md')}` ?-->
-
 ---
 ## FAQ
 
@@ -196,11 +178,8 @@ dropped even after manually putting it back?
 > > **A:** This is a good time to file an issue so we can figure out where MDon can
 evolve to meet your practical needs.
 
-<!--?!-->
-
-<!--?!?-->
 [asset-1]: https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg
 
 ---
-Last Updated: Monday, October 16, 2017, 11:59:17 AM UTC
-<!--?!-->
+Last Updated: Monday, October 16, 2017, 12:16:01 PM UTC
+

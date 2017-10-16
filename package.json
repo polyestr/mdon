@@ -2,7 +2,7 @@
     "name": "mdon",
     "displayName": "Polyestr MDon",
     "glyph": "ΨM",
-    "version": "1.0.0-alpha.3b",
+    "version": "1.0.0-alpha.3c",
     "description": "Stupid simple inline markdown fields used by the Polyestr application framework.",
     "author": "Saleh Abdel Motaal <saleh@grasppe.com>",
     "license": "MIT",
