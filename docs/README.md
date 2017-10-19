@@ -1,3 +1,6 @@
+---
+ title: README
+---
 <? `![${displayName} logo][${@alias('https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg', 'asset')}]` ?>
 <?!>
 
@@ -5,6 +8,9 @@
 <?!>
 
 <? `${description}` ?>
+<?!>
+
+<? `${@include('docs/FEATURES.md')}` ?>
 <?!>
 
 <? ?>

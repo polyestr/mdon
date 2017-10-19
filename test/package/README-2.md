@@ -1,6 +1,32 @@
-## Concepts
+---
+ title: README
+---
+<!--? `\n![${displayName} logo][${@alias(@exists('../../assets/logo.svg'), 'asset')}]\n` ?-->
 
-### Fragments
+![Polyestr MDon Test logo][asset-1]
+
+<!--?!-->
+
+<!--? `\n# ${displayName}\n` ?-->
+
+# Polyestr MDon Test
+
+<!--?!-->
+
+<!--? `\n${description}\n` ?-->
+
+Test package for the stupid simple inline markdown fields used by the Polyestr application framework.
+
+<!--?!-->
+
+<!--? ?-->
+<!--?!-->
+
+<!--? `\n### Concepts\n\n${@include('docs/MDON_CONCEPTS.md')}` ?-->
+
+### Concepts
+
+> *Fragments*
 
 Fragments are sections or regions that will be processed in the order by which
 they appear in markdown.
@@ -13,7 +39,7 @@ they appear in markdown.
 
   3. If it is not in a well-formed fragment it will come back to haunt you.
 
-### Directives
+> *Directives*
 
 Directives are either a marker or a template literal expression enclosed between
 the `<?` and `?>` of an opening tag.
@@ -26,7 +52,7 @@ with the fishes (those are MDons business not yours).
 3. Template tags starting with ``<? `MDon will obey your ${[interpolations]}` ?>``
 make up everything that will take over till `<?!>`.
 
-### Interpolations
+> *Interpolations*
 
 Template expressions follow standard javascript interpolations for the most part
 but they are evaluated in a sandboxed environment to prevent malicious or
@@ -37,10 +63,10 @@ unintended mishaps.
 
   2. `${@<operation>( … args )}`: MDon will, at least:
 
-      a. Either `${@exists(path/to/file)}` finds the file relative to the root
-      of the package or it throws and you get nothing out.
+      a. Either `${@exists(relative/path/to/file)}` finds the file or it throws
+      and you get nothing out.
 
-      b. You can borrow `${@include(…/file)}` from other files in your package.
+      b. You can borrow `${@include(relative/path/to/file)}` from others.
 
       c. With `${@alias(<relative-or-absolute-url>)}` you get `[title][alias]`
       instead of `[title](<relative-or-absolute-url>)`, this means that you also
@@ -52,20 +78,7 @@ unintended mishaps.
   MDon takes care of anyway, but honestly is `` `${displayName} ${version}` ``
   not good enought already… MDon always asks himself that question.
 
-## Perks
-
-> **Using Raw "Source" Paths:**
->
-> A common and highly recommended structure when working with compiled files is
-to separate source files from compiled files, which is not a requirement for
-MDon since it can recompile from compiled files but may still be a more robust
-setup in case something goes wrong. To opt in to this behaviour the first line
-of the target file needs to be begin with `<!--@path/to/source.md@-->`.
->
-> So if you want your `./README.md` to compile from `./docs/README.md` then you
-can simply create a blank `./README.md` and set the first line to `<!--@docs/README.md-->`.
-
-## Gotchas
+> *Gotchas*
 
   1. If you don't match your `<?…?>` with a `<?!>` you'll be sorry, things tend
   to go missing so if you want static content that does not go swimming wrap
@@ -76,3 +89,15 @@ can simply create a blank `./README.md` and set the first line to `<!--@docs/REA
 
   3. MDon likes to put things in multiples of 3, you know, a-b-c, 1-2-3.
 
+<!--?!-->
+
+<!--? ?-->
+[mdon-gist]: https://gist.github.com/daflair/d92ae1d4f54d7cb43a434388c6adabaf
+<!--?!-->
+
+<!--?!?-->
+[asset-1]: ../../assets/logo.svg
+
+---
+Last Updated: Thursday, October 19, 2017, 7:22:16 PM UTC
+<!--?!-->

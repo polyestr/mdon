@@ -13,8 +13,9 @@
     },
     "scripts": {
         "reinstall": "rimraf node_modules && yarn install",
-        "md~": "mdon~",
-        "md": "mdon",
-        "test-yarn-md": "yarn reinstall && yarn md && yarn md~"
+        "md~": "mdon~ *.md",
+        "md": "mdon *.md",
+        "md-out": "mdon *.md .out && rimraf *.out.md",
+        "test-yarn-md": "yarn reinstall && yarn md~ && yarn md && yarn md-out"
     }
 }

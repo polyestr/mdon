@@ -1,3 +1,7 @@
+---
+ title: README
+---
+<!--@docs/README.md@-->
 <!--? `![${displayName} logo][${@alias('https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg', 'asset')}]` ?-->
 ![Polyestr MDon logo][asset-1]
 <!--?!-->
@@ -8,6 +12,21 @@
 
 <!--? `${description}` ?-->
 Stupid simple inline markdown fields used by the Polyestr application framework.
+<!--?!-->
+
+<!--? `${@include('docs/FEATURES.md')}` ?-->
+## Features
+
+* Hackable, zero-dependency, fast, lightweight (so nothing new).
+* Auto-inject content from package.json.
+* Include content from other files.
+* Familiar syntax that is mostly template literal like.
+* Embedded annotations without the need for source files.
+* First-class opt-in support for using raw "source" files.
+* Simple but elegant fault-tolerance to prevent malformed output.
+* Doesn't mess with your YAML frontmatter!
+* Works like a swiss-army knife instead of a shop - 3 concepts to get started.
+
 <!--?!-->
 
 <!--? ?-->
@@ -35,11 +54,59 @@ To process `README.md` in the current directory simply execute:
 
     » mdon
 
-To process another markdown file simply add it's relative path as an argument:
+You can also list one or more markdown files to process them:
+
+    » mdon README.md OTHER.md
+
+### Additional (less-safe) Arguments
+
+There are some other CLI features which are not fully tested so please use with
+care.
+
+Your system might support using globs instead of listing each file:
+
+    » mdon *.md
+
+You can specify a different package root as the first argument as long as the
+name of that folder doesn't look like a filename (aka no extension) but then
+you will have to prefix your markdown files (if any are supplied) with the same
+path prefix:
+
+    » mdon path/to/package path/to/package/*.md
+
+The `./` in relative paths are optional:
 
     » mdon relative/path/to/FILE.md
     » mdon ./relative/path/to/FILE.md
     » mdon /absolute/path/to/FILE.md
+
+If you want to output to a different file you can only do so by appending a
+suffix to the name (before the extension) which must begin with a dot and
+include no spaces. So if you want `README.md` to be compiled to `README.out.md`
+you can do this:
+
+    » mdon .out
+
+> **Important:**
+>
+> If any argument looks like a file extension MDon might treat it as a suffix
+argument so if your markdown files or package path "awkwardly" look like an
+extension, either rename them (pretty-please) or try preceeding such arguments
+with either `-p` or `-m` which is explained below.
+
+### Explicit Arguments
+
+If you prefer to be more explicit about your arguments and marshal over some of
+the syntatic restrictions you can always use dash-styled markers:
+
+    » mdon -p path/to/package -m README.md OTHER.md -o .out
+    » mdon -p path/to/package -m README.md -o .out -m OTHER.md
+
+But keep in mind that globs must always be relative to the current path. Also,
+you cannot specify a different projects or different suffixes so multiple `-p`
+or `-o` simply mean that the last one is used for all the markdown files.
+
+### Legacy Systems
 
 If you get errors related to import/export then you might be running a NodeJS
 version that does not support ES modules. If that is the case consider using
@@ -50,18 +117,26 @@ the CommonJS flavour of MDon:
 This will execute and identical implementation which uses CJS-style require
 instead of ES module import/export.
 
-**Note:** *Always call MDon from the root of your local package.*
+### Package Scripts
 
-If you need to call it from a different root follow this pattern:
+It is recommended when dealing with nested packages to always call MDon from the
+root of each package to prevent unintended outcomes.
+
+If you need to call it from a different root follow this universal pattern:
 
     » pushd path/to/package/root; mdon; popd;
 
 Read more on [`pushd` and `popd` on Wikipedia](https://en.wikipedia.org/wiki/Pushd_and_popd).
 
+Also, avoid using globbs with `**` which could match a markdown file in a nested
+package assuming it belongs to the top package, at which point it will simply
+use the top package's JSON fields in place of the nest one.
+
 ## API
 
 MDon is meant to be used from the command-line, however, you can still use it
-in your code through it's single-function simple interface.
+in your code through it's simple single-function interface which will process
+a single markdown file at a time (does not glob).
 
 ```js
   import mdon from 'mdon';
@@ -73,23 +148,34 @@ Or for legacy common-js:
   const mdon = require('mdon');
 ```
 
-This function will process a single markdown file:
+To process and write the file, mimicing the CLI's behavior:
 
 ```js
-  import mdon from 'mdon';
+  mdon('<path/to/package>', '<path/to/DOCUMENT.md>');
+```
 
-  /* To process and write the file, mimicing the CLI's behavior */
-  mdon('path-to-package.json', 'path-to-DOCUMENT.md');
+To capture the processed output after MDon writes the output:
 
-  /* To capture the processed output without writing to the original file */
-  const processedMarkdown = mdon('path-to-package.json', 'path-to-DOCUMENT.md', false);
+```js
+  const processedMarkdown = mdon('<path/to/package>', '<path/to/DOCUMENT.md>');
+```
 
-  /* To process the file and write the output to a different path */
-  mdon('path-to-package.json', 'path-to-DOCUMENT.md', 'path-to-OUTPUT.md');
+To simply capture the processed output without writing the output:
 
-  /* Alternativly, can also prepend and the output filename's extension */
-  mdon('path-to-package.json', 'path-to-DOCUMENT.md', '.out');
+```js
+  const processedMarkdown = mdon('<path/to/package>', '<path/to/DOCUMENT.md>', false);
+```
 
+To append a suffix to the name of the output file:
+
+```js
+  mdon('<path/to/package>', '<path/to/DOCUMENT.md>', '.out');
+```
+
+To process the file and write the output to a different file (work in progress, use cautiously):
+
+```js
+  mdon('<path/to/package>', '<path/to/DOCUMENT.md>', '<path/to/OUTPUT.md>');
 ```
 
 <!--?!-->
@@ -137,10 +223,10 @@ unintended mishaps.
 
   2. `${@<operation>( … args )}`: MDon will, at least:
 
-      a. Either `${@exists(relative/path/to/file)}` finds the file or it throws
-      and you get nothing out.
+      a. Either `${@exists(path/to/file)}` finds the file relative to the root
+      of the package or it throws and you get nothing out.
 
-      b. You can borrow `${@include(relative/path/to/file)}` from others.
+      b. You can borrow `${@include(…/file)}` from other files in your package.
 
       c. With `${@alias(<relative-or-absolute-url>)}` you get `[title][alias]`
       instead of `[title](<relative-or-absolute-url>)`, this means that you also
@@ -152,7 +238,20 @@ unintended mishaps.
   MDon takes care of anyway, but honestly is `` `${displayName} ${version}` ``
   not good enought already… MDon always asks himself that question.
 
-### Gotchas
+## Perks
+
+> **Using Raw "Source" Paths:**
+>
+> A common and highly recommended structure when working with compiled files is
+to separate source files from compiled files, which is not a requirement for
+MDon since it can recompile from compiled files but may still be a more robust
+setup in case something goes wrong. To opt in to this behaviour the first line
+of the target file needs to be begin with `<!--@path/to/source.md@-->`.
+>
+> So if you want your `./README.md` to compile from `./docs/README.md` then you
+can simply create a blank `./README.md` and set the first line to `<!--@docs/README.md-->`.
+
+## Gotchas
 
   1. If you don't match your `<?…?>` with a `<?!>` you'll be sorry, things tend
   to go missing so if you want static content that does not go swimming wrap
@@ -203,5 +302,5 @@ evolve to meet your practical needs.
 [asset-1]: https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg
 
 ---
-Last Updated: Wednesday, October 18, 2017, 12:29:10 PM UTC
+Last Updated: Thursday, October 19, 2017, 7:22:17 PM UTC
 <!--?!-->

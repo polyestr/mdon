@@ -2,7 +2,7 @@
     "name": "mdon",
     "displayName": "Polyestr MDon",
     "glyph": "ΨM",
-    "version": "1.0.0-alpha.3e",
+    "version": "1.0.0-alpha.3f",
     "description": "Stupid simple inline markdown fields used by the Polyestr application framework.",
     "author": "Saleh Abdel Motaal <saleh@grasppe.com>",
     "license": "MIT",
@@ -19,7 +19,13 @@
     "scripts": {
         "md~": "lib/index.js",
         "md": "lib/index.mjs",
-        "test-package-yarn": "cd ./test/package; yarn test-yarn-md; cd ../../",
-        "prepare": "yarn md"
+        "test-md~": "lib/index.js ./test/package -m README.md",
+        "test-md": "lib/index.mjs ./test/package -m README.md",
+        "test-glob-md~": "lib/index.js ./test/package ./test/package/*.md",
+        "test-glob-md": "lib/index.mjs ./test/package ./test/package/*.md",
+        "test-glob": "yarn run test-glob-md~ && yarn run test-glob-md",
+        "test-yarn": "cd ./test/package; yarn test-yarn-md; cd ../../",
+        "test": "yarn run test-md~ && yarn run test-md && yarn test-glob && yarn test-yarn",
+        "prepare": "yarn test && yarn md"
     }
 }
