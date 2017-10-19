@@ -1,6 +1,3 @@
----
- title: README
----
 <!--@docs/README.1.md@-->
 <!--? `\n![${displayName} logo][${@alias(@exists('../../assets/logo.svg'), 'asset')}]\n` ?-->
 
@@ -100,5 +97,5 @@ unintended mishaps.
 [asset-1]: ../../assets/logo.svg
 
 ---
-Last Updated: Thursday, October 19, 2017, 7:22:16 PM UTC
+Last Updated: Thursday, October 19, 2017, 7:55:04 PM UTC
 <!--?!-->

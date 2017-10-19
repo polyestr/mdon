@@ -1,6 +1,3 @@
----
- title: README
----
 <!--@docs/README.md@-->
 <!--? `![${displayName} logo][${@alias('https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg', 'asset')}]` ?-->
 ![Polyestr MDon logo][asset-1]
@@ -302,5 +299,5 @@ evolve to meet your practical needs.
 [asset-1]: https://cdn.rawgit.com/polyestr/mdon/master/assets/logo.svg
 
 ---
-Last Updated: Thursday, October 19, 2017, 7:22:17 PM UTC
+Last Updated: Thursday, October 19, 2017, 7:55:05 PM UTC
 <!--?!-->
